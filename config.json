@@ -1,0 +1,7 @@
+{
+	"database": "music",
+	"period": "12",
+	"runat": "8:00",
+	"remote": "git@github.com:marcusdeng22/music-db.git",
+	"branch": "master"
+}

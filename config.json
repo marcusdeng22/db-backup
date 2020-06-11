@@ -2,8 +2,8 @@
 	"username": "marcus",
 	"email": "marcusd.9234@gmail.com",
 	"database": "music",
-	"period": "12",
-	"runat": "8:00",
+	"period": 12,
+	"runat": 8,
 	"remote": "git@github.com:marcusdeng22/music-db.git",
-	"branch": "master"
+	"branch": "test"
 }

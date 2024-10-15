@@ -54,6 +54,11 @@ def configure():
 		print("Reset scheduler:", len(scheduler.queue))
 		#notify?	TEST
 		schedEvent.set()
+		#set mongo address
+		if "mongodb-ip" not in tempConfig:
+			tempConfig["mongodb-ip"] = "localhost"
+		if "mongodb-port" not in tempConfig:
+			tempConfig["mongodb-port"] = "27017"
 		#set new config
 		config = tempConfig
 		return (True, "Configuration OK",)
@@ -193,7 +198,7 @@ def doBackup():
 			return resp[1]
 
 		print("Dumping ...", end=" ")
-		subprocess.run(["mongodump", "--db", config["database"], "--out", OUTPUT], check=True, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+		subprocess.run(["mongodump", "--host", config["mongodb-ip"], "--port", config["mongodb-port"], "--db", config["database"], "--out", OUTPUT], check=True, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
 		print("OK")
 
 		changed = True
